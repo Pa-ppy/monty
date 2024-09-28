@@ -39,6 +39,7 @@ void run_monty(FILE *file)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"add", add},
 		{NULL, NULL}
 	};
 	char *opcode;
