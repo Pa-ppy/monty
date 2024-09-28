@@ -7,7 +7,7 @@
  *
  * Return: 0 on success, or EXIT_FAILURE on failure
  */
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *file;
 
@@ -37,6 +37,8 @@ void run_monty(FILE *file)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	char *opcode;
