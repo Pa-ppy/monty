@@ -39,18 +39,20 @@ void run_monty(FILE *file)
 		{"pall", pall},
 		{NULL, NULL}
 	};
+	char *opcode;
+	char *arg;
 	int i;
 
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
-		char *opcode = strtok(line, " \n");
-		char *arg = strtok(NULL, " \n");
+		opcode = strtok(line, " \n");
+		arg = strtok(NULL, " \n");
+		i = 0;
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
-		int i = 0;
 		while (instructions[i].opcode != NULL)
 		{
 			if (strcmp(opcode, instructions[i].opcode) == 0)
