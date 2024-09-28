@@ -50,3 +50,53 @@ void pall(stack_t **stack, unsigned int line_number, char *arg)
 		current = current->next;
 	}
 }
+
+/**
+ * pint - Prints the value at the top of the stack
+ * @stack: double pointer to the stack
+ * @line_number: Line number of the current instruction
+ * @arg: Argument
+ *
+ * Description: Prints an error if stack is empty
+ */
+void pint(stack_t **stack, unsigned int line_number, char *arg)
+{
+	(void)arg;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * pop - Removes the top element of the stack
+ * @stack: Double pointer to the stack
+ * @line_number: Line number of the current instructions
+ * @arg: Argument
+ *
+ * Description: Prints an error message if the stack is empty
+ */
+void pop(stack_t **stack, unsigned int line_number, char *arg)
+{
+	stack_t *temp;
+
+	(void)arg;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	*stack = (*stack)->next;
+
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+
+	free(temp);
+}
