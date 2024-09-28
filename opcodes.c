@@ -38,8 +38,11 @@ void push(stack_t **stack, unsigned int line_number, char *arg)
  */
 void pall(stack_t **stack, unsigned int line_number, char *arg)
 {
+	stack_t *current;
+	(void)line_number;
 	(void)arg;
-	stack_t *current = *stack;
+
+	current = *stack;
 
 	while (current != NULL)
 	{
