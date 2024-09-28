@@ -31,8 +31,7 @@ int main (int argc, char *argv[])
  */
 void run_monty(FILE *file)
 {
-	char *line = NULL, *opcode = NULL, *arg = NULL;
-	size_t len = 0;
+	char line[1024];
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 	instruction_t instructions[] = {
@@ -40,12 +39,13 @@ void run_monty(FILE *file)
 		{"pall", pall},
 		{NULL, NULL}
 	};
+	int i;
 
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
-		opcode = strtok(line, " \n");
-		arg = strtok(NULL, " \n");
+		char *opcode = strtok(line, " \n");
+		char *arg = strtok(NULL, " \n");
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
