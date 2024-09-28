@@ -41,7 +41,7 @@ void run_monty(FILE *file)
 		{NULL, NULL}
 	};
 
-	while (getline(&line, &len, file) != -1)
+	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
 		opcode = strtok(line, " \n");
@@ -64,6 +64,5 @@ void run_monty(FILE *file)
 			error_instruction(line_number, opcode);
 	}
 
-	free(line);
 	free_stack(stack);
 }
