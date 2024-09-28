@@ -40,6 +40,8 @@ void push(stack_t **stack, unsigned int line_number, char *arg);
 void pall(stack_t **stack, unsigned int line_number, char *arg);
 void pint(stack_t **stack, unsigned int line_number, char *arg);
 void pop(stack_t **stack, unsigned int line_number, char *arg);
+void swap(stack_t **stack, unsigned int line_number, char *arg);
+void add(stack_t **stack, unsigned int line_number, char *arg);
 
 /* Utility function */
 void free_stack(stack_t *stack);
